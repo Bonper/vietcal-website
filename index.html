@@ -1,99 +1,122 @@
 
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102b46">
+  <meta name="theme-color" content="#922D32">
   <meta name="description" content="VIETCAL – Ứng dụng lịch âm dương Việt Nam miễn phí, tối giản và tiện lợi.">
   <title>VIETCAL – Lịch Âm Dương Việt Nam</title>
 
   <style>
+    :root {
+      --red: #922D32;
+      --red-dark: #6F2529;
+      --gold: #D9B879;
+      --cream: #FBF8F3;
+      --white: #FFFFFF;
+      --text: #292525;
+      --muted: #77716D;
+      --border: #E9DFD1;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fa;
-      color: #172b3d;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--text);
       line-height: 1.7;
     }
 
     header {
-      background: #102b46;
-      color: white;
-      padding: 22px 7%;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 7%;
     }
 
     .brand {
-      font-size: 25px;
-      font-weight: 800;
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: bold;
       letter-spacing: 2px;
     }
 
-    .brand span {
-      color: #8cc8e8;
-    }
-
     .hero {
-      background: linear-gradient(145deg, #102b46, #1d4968);
+      background: linear-gradient(145deg, var(--red), var(--red-dark));
       color: white;
       text-align: center;
-      padding: 85px 20px 95px;
+      padding: 85px 20px 90px;
     }
 
     .hero h1 {
-      font-size: clamp(34px, 6vw, 54px);
-      margin-bottom: 15px;
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 6vw, 58px);
+      margin-bottom: 12px;
+    }
+
+    .hero .subtitle {
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
     .hero p {
       max-width: 650px;
-      margin: 0 auto 30px;
-      color: #d9e7f1;
+      margin: 0 auto 28px;
+      color: #F4E8DF;
       font-size: 17px;
     }
 
     .button {
       display: inline-block;
-      background: #8cc8e8;
-      color: #102b46;
+      background: var(--gold);
+      color: var(--red-dark);
       text-decoration: none;
-      padding: 13px 27px;
-      border-radius: 9px;
-      font-weight: 700;
+      padding: 13px 25px;
+      border-radius: 10px;
+      font-weight: 750;
       margin: 7px;
       transition: 0.2s;
     }
 
     .button:hover {
       transform: translateY(-2px);
+      filter: brightness(1.04);
     }
 
     .button.secondary {
       background: transparent;
       color: white;
-      border: 1px solid #a9c9dc;
+      border: 1px solid var(--gold);
     }
 
     main {
-      max-width: 950px;
+      max-width: 1000px;
       margin: auto;
       padding: 55px 20px;
     }
 
     section {
-      margin-bottom: 55px;
+      margin-bottom: 48px;
     }
 
     h2 {
-      color: #153b59;
-      font-size: 27px;
-      margin-bottom: 15px;
+      color: var(--red);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 13px;
     }
 
     .intro {
@@ -104,64 +127,130 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 17px;
-      margin-top: 25px;
+      margin-top: 28px;
     }
 
     .feature {
-      background: white;
-      border: 1px solid #e5ebf0;
-      border-radius: 13px;
-      padding: 23px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 24px;
+      text-align: left;
     }
 
     .feature h3 {
-      color: #1b4968;
+      color: var(--red);
       margin-bottom: 8px;
     }
 
     .download {
-      background: white;
-      border: 1px solid #e5ebf0;
-      border-radius: 16px;
-      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 24px;
       text-align: center;
     }
 
-    .download p {
-      margin-bottom: 15px;
+    .download > p {
+      color: var(--muted);
+      margin-bottom: 20px;
     }
 
-    .download .button {
-      background: #153b59;
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .platform {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 26px 18px;
+    }
+
+    .platform h3 {
+      color: var(--red);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .platform p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 13px;
+    }
+
+    .platform .button {
+      display: block;
+      margin: 15px 0 8px;
+      background: var(--red);
       color: white;
     }
 
-    .ios {
-      background: #eaf2f7;
-      border-radius: 15px;
-      padding: 25px;
+    .platform .button:hover {
+      background: var(--red-dark);
     }
 
-    .ios ol {
+    .platform small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .ios-guide {
+      margin-top: 24px;
+      padding: 22px;
+      background: #F5EDE2;
+      border-radius: 13px;
+      text-align: left;
+    }
+
+    .ios-guide h3 {
+      color: var(--red-dark);
+      margin-bottom: 10px;
+    }
+
+    .ios-guide ol {
       padding-left: 22px;
-      margin-top: 12px;
     }
 
     footer {
-      background: #102b46;
-      color: #c8d7e2;
+      background: var(--red-dark);
+      color: #F3E7DC;
       text-align: center;
-      padding: 25px 15px;
+      padding: 26px 15px;
       font-size: 14px;
     }
 
+    footer div + div {
+      color: var(--gold);
+      margin-top: 5px;
+    }
+
     @media (max-width: 600px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .brand {
+        font-size: 25px;
+      }
+
       .hero {
-        padding: 65px 18px 75px;
+        padding: 65px 18px 72px;
       }
 
       main {
-        padding: 40px 17px;
+        padding: 38px 16px;
+      }
+
+      .platforms {
+        grid-template-columns: 1fr;
+      }
+
+      .download {
+        padding: 26px 17px;
       }
     }
   </style>
@@ -170,17 +259,19 @@
 <body>
 
   <header>
-    <div class="brand">VIET<span>CAL</span></div>
+    <div class="brand">VIETCAL</div>
   </header>
 
   <div class="hero">
     <h1>VIETCAL</h1>
-    <p>Lịch Âm Dương Việt Nam</p>
+    <div class="subtitle">Lịch Âm Dương Việt Nam</div>
+
     <p>
       Kết nối thời gian và văn hóa Việt trong một trải nghiệm
       lịch hiện đại, tối giản và tiện lợi.
     </p>
-    <a class="button" href="#download">TẢI ỨNG DỤNG</a>
+
+    <a class="button" href="#download">TẢI VIETCAL</a>
     <a class="button secondary" href="#about">Tìm hiểu thêm</a>
   </div>
 
@@ -188,6 +279,7 @@
 
     <section id="about" class="intro">
       <h2>Về VIETCAL</h2>
+
       <p>
         VIETCAL là ứng dụng lịch âm dương dành cho người Việt,
         giúp bạn dễ dàng theo dõi ngày tháng và tra cứu lịch
@@ -195,6 +287,7 @@
       </p>
 
       <div class="features">
+
         <div class="feature">
           <h3>Lịch âm – dương</h3>
           <p>Tra cứu và theo dõi ngày âm lịch, dương lịch thuận tiện.</p>
@@ -209,6 +302,7 @@
           <h3>Tiện lợi</h3>
           <p>Hướng đến trải nghiệm sử dụng nhanh chóng mỗi ngày.</p>
         </div>
+
       </div>
     </section>
 
@@ -216,38 +310,59 @@
       <h2>Tải VIETCAL</h2>
       <p>Chọn nền tảng phù hợp với thiết bị của bạn.</p>
 
-      <a class="button"
-         href="https://github.com/Bonper/vietcal-website/releases/download/v1.0.1/VIETCAL.apk">
-        TẢI CHO ANDROID
-      </a>
+      <div class="platforms">
 
-      <p style="font-size:13px;color:#718096;margin-top:12px;">
-        Phiên bản Android 1.0.1
-      </p>
-    </section>
+        <div class="platform">
+          <h3>ANDROID</h3>
+          <p>
+            Tải ứng dụng VIETCAL và cài đặt trực tiếp
+            trên thiết bị Android.
+          </p>
 
-    <section class="ios">
-      <h2>Dành cho iPhone</h2>
-      <p>
-        VIETCAL sẽ được cung cấp dưới dạng ứng dụng web
-        có thể thêm vào màn hình chính iPhone.
-      </p>
-      <ol>
-        <li>Mở trang ứng dụng VIETCAL bằng Safari.</li>
-        <li>Nhấn nút Chia sẻ.</li>
-        <li>Chọn Thêm vào màn hình chính.</li>
-        <li>Nhấn Thêm để hoàn tất.</li>
-      </ol>
-      <p style="margin-top:12px;font-size:14px;">
-        Phiên bản iPhone đang được chuẩn bị.
-      </p>
+          <a class="button"
+             href="https://github.com/Bonper/vietcal-website/releases/download/v1.0.1/VIETCAL.apk">
+            TẢI CHO ANDROID
+          </a>
+
+          <small>Phiên bản Android 1.0.1</small>
+        </div>
+
+        <div class="platform">
+          <h3>IPHONE (iOS)</h3>
+          <p>
+            Trải nghiệm VIETCAL trên iPhone
+            và thêm ứng dụng vào màn hình chính.
+          </p>
+
+          <a class="button"
+             href="https://bonper.github.io/vietcal-website/app/"
+             target="_blank"
+             rel="noopener">
+            SỬ DỤNG VIETCAL CHO IPHONE
+          </a>
+
+          <small>Ứng dụng web PWA – Không cần App Store</small>
+        </div>
+
+      </div>
+
+      <div class="ios-guide">
+        <h3>Hướng dẫn cài đặt trên iPhone</h3>
+        <ol>
+          <li>Mở VIETCAL bằng trình duyệt Safari.</li>
+          <li>Nhấn nút Chia sẻ.</li>
+          <li>Chọn Thêm vào màn hình chính.</li>
+          <li>Nhấn Thêm để hoàn tất.</li>
+        </ol>
+      </div>
+
     </section>
 
   </main>
 
   <footer>
     <div>© 2026 VIETCAL – Lịch Âm Dương Việt Nam</div>
-    <div>Designed by Trieu Nguyen.</div>
+    <div>Designed by Trieu Nguyen</div>
   </footer>
 
 </body>
