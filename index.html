@@ -429,6 +429,12 @@
       line-height: 1.55;
     }
 
+/* Automatic device detection */
+.device-ios .android-only,
+.device-android .ios-only {
+  display: none !important;
+}
+    
     /* Footer */
     footer {
       background-color: var(--red-dark);
@@ -587,7 +593,7 @@
       </div>
 
       <div class="platforms-grid">
-        <article class="platform-card">
+        <article class="platform-card android-only">
           <div class="platform-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="6" y="4" width="12" height="16" rx="2.5"></rect>
@@ -607,7 +613,7 @@
           </div>
         </article>
 
-        <article class="platform-card">
+        <article class="platform-card ios-only">
           <div class="platform-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="6" y="2.5" width="12" height="19" rx="3"></rect>
@@ -631,7 +637,7 @@
         </article>
       </div>
 
-      <div class="ios-guide" aria-labelledby="ios-guide-heading">
+      <div class="ios-guide ios-only" aria-labelledby="ios-guide-heading">
         <div class="ios-guide-header">
           <h3 id="ios-guide-heading">Hướng dẫn cài đặt trên iPhone</h3>
           <p>Thực hiện 4 bước đơn giản sau để mở VIETCAL nhanh như ứng dụng trên màn hình chính.</p>
@@ -669,5 +675,23 @@
     <div>Designed by Trieu Nguyen</div>
   </footer>
 
+<script>
+(function () {
+  const ua = navigator.userAgent || "";
+
+  const isAndroidPhone =
+    /Android/i.test(ua) && /Mobile/i.test(ua);
+
+  const isIPhone =
+    /iPhone|iPod/i.test(ua);
+
+  if (isAndroidPhone) {
+    document.body.classList.add("device-android");
+  } else if (isIPhone) {
+    document.body.classList.add("device-ios");
+  }
+})();
+</script>
+  
 </body>
 </html>
